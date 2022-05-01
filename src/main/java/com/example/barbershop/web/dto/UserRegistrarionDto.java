@@ -15,6 +15,8 @@ public class UserRegistrarionDto {
 
     private String password;
 
+    public UserRegistrarionDto(){}
+
     public UserRegistrarionDto(String firstName, String lastName, String email, String number, String password) {
         super();
         this.firstName = firstName;
