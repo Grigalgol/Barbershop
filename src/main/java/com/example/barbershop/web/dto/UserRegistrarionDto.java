@@ -1,4 +1,4 @@
-package com.example.barbershop.web;
+package com.example.barbershop.web.dto;
 
 import lombok.Data;
 

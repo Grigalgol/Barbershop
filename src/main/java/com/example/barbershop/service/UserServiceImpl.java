@@ -3,7 +3,7 @@ package com.example.barbershop.service;
 import com.example.barbershop.model.Role;
 import com.example.barbershop.model.User;
 import com.example.barbershop.repository.UserRepository;
-import com.example.barbershop.web.UserRegistrarionDto;
+import com.example.barbershop.web.dto.UserRegistrarionDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
