@@ -5,6 +5,8 @@ import com.example.barbershop.model.User;
 import com.example.barbershop.repository.UserRepository;
 import com.example.barbershop.web.dto.UserRegistrarionDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -21,5 +23,10 @@ public class UserServiceImpl implements UserService{
                 userRegistrarionDto.getEmail(), userRegistrarionDto.getNumber(), userRegistrarionDto.getPassword(),
                 Arrays.asList(new Role("ROLE_USER")));
         return userRepository.save(user);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        return null;
     }
 }
