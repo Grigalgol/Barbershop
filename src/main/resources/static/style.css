@@ -30,7 +30,7 @@ img {
 .heading-line {
     margin-top: 20px;
     height: 10px;
-    background: url(../img/heading-line.png) center center no-repeat;
+    background: url(/img/heading-line.png) center center no-repeat;
     position: relative;
 }
 
