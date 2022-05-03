@@ -48,6 +48,10 @@ img {
     font-size: 17px;
 }
 
+.username {
+    font-weight: bold;
+}
+
 .navbar-brand {
     font-family: 'Prata', sans-serif;
     -webkit-font-smoothing: antialiased;
