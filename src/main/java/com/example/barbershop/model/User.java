@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -26,6 +28,9 @@ public class User {
 
     private String password;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch=FetchType.LAZY)
+    private Set<Record> records = new HashSet<>();
+
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
             name = "users_roles",
@@ -34,6 +39,8 @@ public class User {
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
+
+
 
     public User(String firstName, String lastName, String email, String number, String password, Collection<Role> roles) {
         this.firstName = firstName;

@@ -14,9 +14,4 @@ public class MainController {
     public String home() {
         return "index";
     }
-
-    @GetMapping("/record")
-    public String record() {
-        return "record";
-    }
 }

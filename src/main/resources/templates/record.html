@@ -47,21 +47,24 @@
 
     </div>
     <div class="col-md-6">
-      <form>
+      <div th:if="${param.success}">
+        <div class="alert alert-info">Вы успешно записались!</div>
+      </div>
+      <form th:action="@{/record}" method="post" th:object="${records}">
         <div class="form-row">
           <div class="form-group">
             <label for="inputEmail4">Дата</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="date"  required autofocus="autofocus">
           </div>
           <div class="form-group">
             <label for="inputPassword4">Время</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="time"  required autofocus="autofocus">
           </div>
 
 
           <div class="form-row">
             <label for="inputState">Барбер</label>
-            <select id="inputState" class="form-control">
+            <select id="inputState" class="form-control" name="barber">
               <option selected>Томас Шелби</option>
               <option>Артур Шелби</option>
               <option>Джон Шелби</option>
@@ -70,7 +73,7 @@
           </div>
           <div class="form-row">
             <label for="inputState">Услуга</label>
-            <select id="inputState" class="form-control">
+            <select id="inputState1" class="form-control" name="service">
               <option selected>Мужская стрижка</option>
               <option>Моделирование бороды</option>
               <option>Детская стрижка</option>
