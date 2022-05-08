@@ -40,7 +40,7 @@
                 </a>
                 <ul sec:authorize="isAuthenticated()" class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_ADMIN')">Записи клиентов</a></li>
-                    <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_USER')">Мои Записи</a></li>
+                    <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_USER')" th:href="@{/userRecords}">Мои Записи</a></li>
                     <li><a class="dropdown-item" href="#" th:href="@{/logout}">Выйти</a></li>
                 </ul>
                 </li>

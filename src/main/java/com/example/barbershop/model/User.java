@@ -3,9 +3,7 @@ package com.example.barbershop.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name="users", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -29,7 +27,7 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user", fetch=FetchType.LAZY)
-    private Set<Record> records = new HashSet<>();
+    private List<Record> records;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
