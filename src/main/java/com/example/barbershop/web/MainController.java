@@ -14,4 +14,19 @@ public class MainController {
     public String home() {
         return "index";
     }
+
+    @GetMapping("/#command")
+    public String command() {
+        return "index#command";
+    }
+
+    @GetMapping("/#services")
+    public String services() {
+        return "index#services";
+    }
+
+    @GetMapping("/#contact")
+    public String contact() {
+        return "index#contact";
+    }
 }

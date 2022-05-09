@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
   <meta charset="UTF-8">
@@ -27,14 +27,25 @@
           <a class="nav-link" href="/" th:href="@{/}">Главная</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/" th:href="@{/}">Услуги</a>
+          <a class="nav-link" href="/" th:href="@{/#services}">Услуги</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/" th:href="@{/}">Команда</a>
+          <a class="nav-link" href="/" th:href="@{/#command}">Команда</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/" th:href="@{/}">Контакты</a>
+          <a class="nav-link" href="/" th:href="@{/#contact}">Контакты</a>
         </li>
+        <li class="nav-item dropdown">
+          <a sec:authorize="isAuthenticated()" sec:authentication="principal.username" class="nav-link dropdown-toggle username" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown
+          </a>
+          <ul sec:authorize="isAuthenticated()" class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/admin}">Записи клиентов</a></li>
+            <li><a class="dropdown-item" href="#" sec:authorize="hasRole('ROLE_USER')" th:href="@{/userRecords}">Мои Записи</a></li>
+            <li><a class="dropdown-item" href="#" th:href="@{/logout}">Выйти</a></li>
+          </ul>
+        </li>
+        <a href="#" sec:authorize="!isAuthenticated()" class="btn btn-entrance" th:href="@{/login}">Войти</a>
       </ul>
     </div>
   </div>
@@ -54,11 +65,11 @@
         <div class="form-row">
           <div class="form-group">
             <label for="inputEmail4">Дата</label>
-            <input type="text" class="form-control" name="date"  required autofocus="autofocus">
+            <input type="text" class="form-control" name="date"  required autofocus="autofocus" placeholder="10.12.2002">
           </div>
           <div class="form-group">
             <label for="inputPassword4">Время</label>
-            <input type="text" class="form-control" name="time"  required autofocus="autofocus">
+            <input type="text" class="form-control" name="time"  required autofocus="autofocus" placeholder="18:45">
           </div>
 
 
